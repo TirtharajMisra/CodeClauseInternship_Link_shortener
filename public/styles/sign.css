@@ -19,7 +19,7 @@ h1 {
 header {
   position: absolute;
   top: 0;
-  background-color: #4caf50;
+  background-color: #9887ee;
   width: 100%;
   text-align: center;
   padding: 10px 0;
@@ -72,7 +72,7 @@ header {
 }
 
 .btn-primary {
-  background-color: #4caf50;
+  background-color: #9887ee;
   color: white;
   padding: 10px;
   border: none;
@@ -90,7 +90,7 @@ header {
 }
 
 .sign-link a {
-  color: #4caf50;
+  color: #9887ee;
   text-decoration: none;
 }
 

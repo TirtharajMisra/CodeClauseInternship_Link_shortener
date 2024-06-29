@@ -12,7 +12,7 @@ body {
 }
 
 header {
-  background-color: #4caf50;
+  background-color: #9887ee;
   color: white;
   padding: 15px;
   width: 100vw;
@@ -35,7 +35,7 @@ header .logout-form {
 }
 
 header .btn-logout {
-  background-color: #ff5e57;
+  background-color: #9d7bf3;
   color: white;
   border: none;
   padding: 10px;
@@ -108,7 +108,7 @@ main {
 
 .btn-primary {
   padding: 10px 20px;
-  background-color: #4caf50;
+  background-color: #9887ee;
   color: white;
   border: none;
   border-radius: 5px;
@@ -119,7 +119,7 @@ main {
 }
 
 .btn-primary:hover {
-  background-color: #45a049;
+  background-color: #6452d9;
 }
 
 .url-table {
@@ -136,12 +136,12 @@ main {
 }
 
 .url-table th {
-  background-color: #4caf50;
+  background-color: #9887ee;
   color: white;
 }
 
 .url-table td a {
-  color: #4caf50;
+  color: #9887ee;
   text-decoration: none;
 }
 
