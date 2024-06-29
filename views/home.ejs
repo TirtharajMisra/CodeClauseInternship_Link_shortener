@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="/styles/home.css" />
+    <link rel="icon" type="image/x-icon" href="/images/scissor.png" />
+  </head>
+  <body>
+    <header>
+      <a href="/"><h1>URL Shortener</h1></a>
+      <% if (locals.name) { %>
+      <div class="user-info">
+        <h2>
+          Welcome, <%= name %>
+          <form method="POST" action="/user/logout" class="logout-form">
+            <button type="submit" class="btn-logout">Logout</button>
+          </form>
+        </h2>
+        <% if (locals.role == 'ADMIN') { %>
+        <nav class="admin-nav">
+          <a href="/admin">Admin Control</a>
+          <a href="/admin/signup">Admin Portal</a>
+        </nav>
+        <% } %>
+      </div>
+      <% } %>
+    </header>
+
+    <% if (locals.error) { %>
+    <div class="error-message"><%= error %></div>
+    <% } %>
+
+    <main>
+      <% if (locals.shortID) { %>
+      <div class="url-generated">
+        <p>URL Generated: <a href="/r/<%= shortID %>"><%= shortID %></a></p>
+      </div>
+      <% } %>
+
+      <form method="POST" action="/URL" class="url-form">
+        <label for="url">Enter Original URL:</label>
+        <input
+          type="text"
+          name="url"
+          id="url"
+          placeholder="https://example.com"
+          required
+        />
+        <button type="submit" class="btn-primary">Generate</button>
+      </form>
+
+      <% if (locals.data) { %>
+      <table class="url-table">
+        <thead>
+          <tr>
+            <th>S. No</th>
+            <th>ShortID</th>
+            <th>Redirect</th>
+            <th>Clicks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% data.forEach((url, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><a href="/r/<%= url.shortID %>"><%= url.shortID %></a></td>
+            <td><%= url.redirectURL %></td>
+            <td><%= url.visitedHistory.length %></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } %>
+    </main>
+
+    <script src="/scripts/auth.js"></script>
+  </body>
+</html>
